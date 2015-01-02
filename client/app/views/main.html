@@ -1,0 +1,21 @@
+<p>Step 1, Authorise this app to use your Dropbox Account</p>
+<button class="btn btn-lg btn-success" ng-click="registerDropBox()">Authorise Dropbox</button>
+<p>Step 2 , Upload it</p> <input type="file" ng-file-select="onFileSelect($files)" onclick="this.value=null">
+<div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
+<br/>
+<div ng-show="selectedFiles != null">
+    <div class="sel-file" ng-repeat="f in selectedFiles">
+        {{($index + 1) + '.'}}
+        <img ng-show="dataUrls[$index]" ng-src="{{dataUrls[$index]}}">
+        <button class="button" ng-click="start($index)" ng-show="progress[$index] < 0">Start</button>
+                <span class="progress" ng-show="progress[$index] >= 0">
+                    <div style="width:{{progress[$index]}}%">{{progress[$index]}}%</div>
+                </span>
+        <button class="button" ng-click="abort($index)" ng-show="hasUploader($index) && progress[$index] < 100">Abort
+        </button>
+        {{f.name}} - size: {{f.size}}B - type: {{f.type}}
+    </div>
+</div>
+</div>
+</div>
+</div>

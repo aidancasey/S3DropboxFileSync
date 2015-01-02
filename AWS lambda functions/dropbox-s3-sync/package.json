@@ -1,0 +1,30 @@
+{
+  "name": "dropbox-s3-sync",
+  "version": "1.0.0",
+  "description": "AWS Lambda function to sync objects from an S# bucket to Dropbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "AWS Lamdba",
+    "Dropbox"
+  ],
+    "dependencies": {
+        "lodash": "~2.4.1",
+        "q": "~1.1.2",
+        "dropbox": "~0.10.3"
+    },
+    "devDependencies": {
+        "grunt": "0.4.*",
+        "grunt-aws-lambda": "0.2.0",
+        "aws-sdk": "2.0.23"
+    },
+    "bundledDependencies": [
+        "lodash",
+        "q",
+        "dropbox"
+    ],
+  "author": "Aidan Casey",
+  "license": "BSD-2-Clause"
+}

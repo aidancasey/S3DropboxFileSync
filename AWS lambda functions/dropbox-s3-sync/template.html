@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="">
+<head>
+    <title>List of links on {{page}} this is the place for me</title>
+</head>
+<body>
+<h1>List of links on {{page}}</h1>
+
+<ul>
+    {{#links}}
+    <li><a href="{{{url}}}" target="_blank">{{text}}</a></li>
+    {{/links}}
+</ul>
+<p>
+    Generated {{time}}
+</p>
+</body>
+</html>
