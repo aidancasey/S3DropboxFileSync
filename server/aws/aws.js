@@ -1,6 +1,6 @@
 'use strict';
 
-var config = require('../../server/config/config');
+var config = require('../config/config');
 var Q = require('q');
 var AWS = require('aws-sdk');
 AWS.config.region = 'eu-west-1';

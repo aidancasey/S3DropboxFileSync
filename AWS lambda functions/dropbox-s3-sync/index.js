@@ -66,7 +66,7 @@ exports.handler = function (event, context) {
     getToken().then(function (token) {
              getFile(srcBucket,srcKey)
             .then(function (fileStream) {
-                foo = syncFile(srcKey,fileStream, token);
+                  syncFile(srcKey,fileStream, token);
             })
             .catch(function (error) {
                 console.log(error);

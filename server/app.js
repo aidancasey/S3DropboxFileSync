@@ -5,9 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
+var routes = require('./routes');
 var busboy = require('connect-busboy');
-var index = require('./routes/index');
+//var index = require('./routes/index');
 
 
 var app = express();
@@ -18,7 +18,7 @@ app.use(busboy());
  * Route Imports
  */
 
-require('./routes/routes')(app);
+require('./routes')(app);
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -29,6 +29,7 @@ app.set('view engine', 'html');
 /**
  * Development Settings
  */
+
 if (app.get('env') === 'development') {
     // This will change in production since we'll be using the dist folder
     app.use(express.static(path.join(__dirname, '../client')));
@@ -68,7 +69,6 @@ if (app.get('env') === 'production') {
 /**
  * Routes
  */
-app.use('/index', index);
-
+//app.use('/index', index);
 
 module.exports = app;

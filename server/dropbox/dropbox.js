@@ -6,7 +6,7 @@ var crypto = require('crypto'),
     Dropbox = require("dropbox"),
     Q = require('q');
 
-var config = require('../../server/config/config');
+var config = require('../config/config');
 var APP_KEY = config.dropbox.appKey;
 var APP_SECRET = config.dropbox.appSecret;
 
