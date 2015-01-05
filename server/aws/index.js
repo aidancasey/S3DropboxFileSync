@@ -5,6 +5,12 @@ module.exports = function(app) {
         aws = require('./aws');
 
 
+    router.get('/viewfile/', function(req,res){
+        var fileName = req.query.file;
+        var url =aws.getSignedUrl(fileName);
+       res.send(url);
+    });
+
     router.post('/', function (req, res) {
 
         req.pipe(req.busboy);

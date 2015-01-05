@@ -53,6 +53,8 @@ exports.postToS3 = function (buffer, filename, mimetype) {
             ContentType: mimetype
         };
 
+    console.log(dataToPost);
+
     dataToPost.Body = buffer;
     s3bucket.putObject(dataToPost, function (err, data) {
         if (err) {
@@ -62,4 +64,10 @@ exports.postToS3 = function (buffer, filename, mimetype) {
         }
     });
     return deferred.promise;
+};
+
+exports.getSignedUrl = function (fileName) {
+    var s3 = new AWS.S3();
+    var params = {Bucket: config.aws.fileUploadBucket, Key : fileName, Expires :20};
+    return s3.getSignedUrl('getObject', params);
 };
